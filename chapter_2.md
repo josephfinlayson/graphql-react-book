@@ -174,10 +174,65 @@ The server will respond with a JSON object containing the information the client
 *Recreate image for dogs*
 ![Alt text](https://cdn-images-1.medium.com/max/1600/1*f6WxMRJd_1cOf-m8Yo_RZg.png)
 
+*Actually give worked example! with queries*
+
 #### Problem 2: Overfetching
+
+
+Hopefully it's already becoming clear the problems with REST APIs, but so you can convince your boss that you should ditch REST APIs completely, let's look at the problem of over fetching. Overfetching means that too much data is returned to the client. This reduces performance on mobile devices.
+
+Above we have a endpoint for getting the details for the dog by the name of the dog - `/dog/:name`. This returns everything we know about the dog.
+
+However, in many situations we will need to know only a limited information about the dog. For example, in a post on a newsfeed - we will just need the name and image.
+
+*image of post done in balsamiq*
+
+
+Imagine the following DB structure
+
+*Actually do this properly*
+
+Posts Table
+```
+  |post id| post_title|post_text  |dog_id|
+  | 1    |   First Post!   | This is my first post guys, I hope you enjoy it!   | |
+  |  2   |       |       | |
+
+```
+Dogs table
+
+      |user_id|name|age|fur_type|levels_of_woofs|obedience| age| image|
+    |1|woofy|12|curly|high|low||http://example.com/imageofWoofy|
+
+In our Javascript code we will have the following (pseudocode)
+
+```js
+    fetch(`http://dogbook.com/post/${postId}`).then(result =>
+        return fetch(`http://dogbook.com/user/${result.user_id}`)
+    )
+
+```
+So this JavaScript code fetches enough information to displays a given post on dogbook, as well as the user that posted it. However, the user endpoint returns too much information! On the kind of connections that programmers usually have (speedy) - this isn't an issue! But particularly on mobile devices, this extra information going back and forth has a noticeable performance hit!
+
+Graph QL solves this issue by letting the client specify exactly what data the client needs! For example, if we only need 
+
+
+
 
 This approach solves the under or over fetching of data (because the client gets only the data it asked for),
 
 Also endpoints return a fixed data structure, so clients will usually under or over fetch information, resulting in unnecessary data transfer.
 
 Finally, the entity structure is not flexible enough when trying to manipulate several pieces of data at the same time. It’s not uncommon for clients to perform a high number of calls to the API to solve a single problem.
+
+
+#### Problem 3: manually constructing DB queries for a backend
+
+For example, let's imagine the Newsfeed for the dogs. There's the post in the newsfeed. For every post there is an image and the name of the dog posted it.
+
+However, for every post, the post is stored in the database, with the idea
+
+Now all we are have the ID of the dogRelated to the post and we need to hit the dogs API for exampleOrGetting the information on the name and image of the doctor posted itI imagine of the dog API return the full data everything we know about the dogEverytime we want to get just the name of the image.SpaceI'm On almost devices that would just be waiting much data, So warm my heart that I can develop to do is to create a special endpoint that just returns theDog name and image. This is complete overkillAnd requires too much work for developers.
+
+ allowing developed lopers
+\
