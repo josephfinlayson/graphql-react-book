@@ -1,0 +1,189 @@
+Hands-On: GraphQL, Apollo and React
+React, and an API with superpowers
+Audience
+This book is aimed at people who are familiar with React and SQL along with basic knowledge of HTML and CSS. We also assume they have access to a Mac/Linux development environment, or they have installed Cygwin. People who want to enhance their skills from just React and SQL to building a scalable full stack application while also learning GraphQL will find this helpful.
+Mission
+React, developed by the engineers at Facebook, is a powerful library for creating clear interactive UIs. React provides benefits such as one-way data binding and a component based architecture, which makes it easier to build highly complex, performant applications.
+
+GraphQL is a query language designed to build client applications by providing an intuitive and flexible syntax and system for describing their data requirements and interactions. It allows the frontend to declare data requirements without complex REST APIs.
+
+With this book we will implement the best practice ways for building solid, scalable React applications using GraphQL. We’ll focus on solving complex problems with GraphQL e.g. abstracting multi-table database architecture, and non-database models, e.g. handling image uploads with GraphQL. Our client, engine and server will be powered by Apollo. Our learning tool will be Graphbook - a Facebook clone.
+
+Objectives and achievements
+We’ll learn how to build web applications using React
+We’ll also look at how to create GraphQL APIs using ExpressJS.
+We’ll cover the tricky parts of connecting React to the Backend, and maintaining and synchronising state
+We’ll write test cases to test the backend as well as frontend for our application
+We’ll cover deployment, so our readers can get their software online in secure, best practice way
+General structure
+All code, commit by commit will live on a public git repository, so if users are stuck, or need to jump to a specific part, they can access the code
+
+Part 1 will be an introduction to React and GraphQL, and how they fit together
+Part 2 will be focussing on complex use cases for GraphQL
+Part 3 will focus on making our application production ready, and deploying it
+Detailed outline
+Part 1- [Architecting the stack]
+Chapter 1: Gearing Up for Development - 35 pages
+Description
+In this chapter, we’ll discuss the architecture for the application. Specifically we will look at the differing parts of how the application slot together. And do an introduction to the underlying core concepts.
+
+As an adjunct to the architecture, we will focus on what we want our technology to achieve, and our justifications for the technology we implement. The technology will be GraphQL, Apollo, PgSQL, Node and React. This will encourage our readers to think critically about technology
+
+Level
+BASIC
+Topics covered
+Installing and configuring Node using NVM
+Introduction to the GraphQL, Node and React, and how they fit together
+Architecture, Technology & Requirements
+Skills learned
+Thinking critically about how to architect a stack for an application
+Chapter 2: Creating our first API in express - 20 pages
+Description
+We will start our server in Express, the most widely used Node.JS server side framework, and we’ll learn to use Insomnia, to test our GraphQL APIs. We will write a simple GraphQL api.
+Level
+BASIC
+Topics covered
+Getting up and running with Express
+Creating GraphQL APIs
+Getting familiar with Insomnia for API development
+
+Skills learned
+The reader will learn about GraphQL APIs and how they can build them using Express. They will learn about testing APIs using Insomnia
+Chapter 3: Connecting to Database - 45 pages
+Description
+We’ll discuss what PostgreSQL is and how it can be used for data storage. We’ll look how we generate a GraphQL schema over a PgSQL SB.. We will build schemas for both “Users” and “Posts” (i.e. facebook posts)
+Level
+BASIC
+Topics covered
+Getting familiar and setting up PostgreSQL
+Integrating KnexJS into our application
+Defining GraphQL schemas for our application
+Writing database migrations using KnexJS
+Skills learned
+The reader will learn about using PostgreSQL to persist data. They will also learn the fundamentals of how to teach GraphQL about how your database works, to build the API
+Part 2 - [Developing a fully featured application]
+Chapter 4: Integrating React with the Backend - 30 pages
+Description
+By now we have the concepts of both posts and users in our API. We’ll now add the frontend components, that allow a user to login, and create a post. Given that our readers already are familiar with React/Redux, we won’t deep-dive into them both
+Level
+MEDIUM
+Topics covered
+Authenticating with React/Redux & JWT
+Frontend components for Login form
+Frontend components
+Sagas
+Skills learned
+The reader will learn best practices for how to interact with a secure API, as well as be led through building the frontend components to use
+Chapter 5: Components for Graphbook - 40 pages
+Description
+Now we have some APIs for Posts and Pages, we should build the relevant components for creating a channel, and listing channels, and connecting them to the API. We will also create components for viewing chat messages, and to create a chat message
+Level
+MEDIUM
+Topics covered
+Creating reusable components in React
+Data flow from API to component with Apollo
+Client side GQL
+Skills learned
+The reader will be guided on the appropriate structure of a React App, and best practices for creating high quality components
+
+Chapter 6: User authentication using GraphQL, Apollo, and JWT - 20 pages
+Description
+We’ll talk about JWT, and the advantages of using it for secure messages without sessions. We’ll secure our GraphQL interfaces for posting. We’ll also introduce Apollo, with provides patterns to simplify working with GraphQL
+Level
+MEDIUM/ADVANCED
+Topics covered
+JWT - theory
+Securing GraphQL interfaces
+Using Apollo to simplify GraphQL
+Error handling with Apollo, React and GraphQL
+Skills learned
+Learn about how to practice good security (with access and refresh tokens), and apply that security
+Chapter 7: Posting and retrieving images from GraphQL- 25 pages
+Description
+We’ll recap on GraphQL theory, and look at how we can use a seperate object store (i.e. not a DB) for saving and showing images. We’ll build the frontend components to save and show images
+Level
+ADVANCED
+Topics covered
+GraphQL - theory
+Uploading and retrieving images using GraphQL
+Using AWS S3 to save images
+Displaying images on the frontend
+Skills learned
+End to end flow for adding and displaying images in the application
+Chapter 8: Writing tests for Graphbook - 25 pages
+Description
+We will implement Jest, a unit testing framework for backend and frontend tests. We will guide our reader through writing tests. Specifically focussing on testing our GraphQL schema and mutators, and how to test React applications, while mocking out a GraphQL backend.
+Level
+Medium
+Topics covered
+Testing GraphQL and React with Jest
+Structuring code for testability
+Mocking for tests
+Skills learned
+How to test GraphQL, and how it differs from conventional backend testing. “Gotchas” when testing a frontend with a GraphQL backend.
+Chapter 9: Adding features to Graphbook - 50 pages
+Description
+We’ll continue adding more end to end features for Graphbook. We’ll create Graphbook user pages that display posts, as well as a simple newsfeed
+Level
+Medium
+Topics covered
+Creating a newsfeed
+Using React Router to create new routes
+Skills learned
+More practice in creating components and APIs in GraphQL
+Chapter 10: Realtime Subscriptions in GraphQL - 35 pages
+Description
+The subscription part of GraphQL is highly experimental, but we’ll examine how to implement a notification system using it.
+Level
+Medium
+Topics covered
+Sockets in GraphQL
+Apollo subscriptions
+GraphQL theory and specification
+Skills learned
+Working at the cutting edge of GraphQL, reading language specification documents, Apollo.
+Part 3- [Gearing Up For Deployment]
+Chapter 11: Performance, Caching and Error logging with GraphQL - 30 pages
+Description
+As we make sure our application has production level quality guarantees, we need to ensure it has the correct tools to log issues
+
+Level
+ADVANCED
+Topics covered
+
+Apollo for:
+ Performance caching
+Logging
+Caching
+Skills learned
+The reader will learn how to log and debug issues in a production like environment
+Chapter 12: Deploying To AWS EC2 - 20 pages
+Description
+We’ll discuss Amazon Web Services and one of its commonly used service: EC2. We’ll create an EC2 instance, install required dependencies also then deploy our application on it.
+Level
+ADVANCED
+Topics covered
+AWS EC2 setup and deployment
+AWS Elastic IP configuration to create a named server to deploy to
+Skills learned
+The reader will learn to setup and deploy their web applications on an AWS EC2 server
+Chapter 13: Final Words - 15 pages
+Description
+We’ll look at features missing from our app, and we’ll give our readers tips on how to fulfill them. We’ll then recap on what we’ve done so far, and provide resources on how to stay on top of GraphQL and React development
+Level
+Advanced
+Topics covered
+Advanced PGSQL SUBSCRIBE/PUBLISH features,
+How to paginate posts,
+Additional resources for staying at the cutting edge
+Deployment best practices using Continuous Deployment
+Skills learned
+The reader will get tips on how to extend the app, by modelling specific advanced user stories, and how to approach them. They will also learn tips on next steps for simplifying complex development
+Author Bio
+Joseph Finlayson
+I'm a tech lead skilled in architecting and developing complex applications. My primary language is JavaScript ES5 - ES7, but I have also worked in Java, Ruby, and I hobby program in Python. I have team-lead experience of 5+ member team and have worked internationally, with a particular focus on bringing the wonders of React development to Banking, Insurance, and Government
+
+Lastly I've given talks on CSS modules and the ES6 spec, and won hackathons at some of the world's leading companies (Facebook, Allianz, Tesco).
+
+Ali Idrees
+I'm a software engineer with experience in the full software development lifecycle. I have a Bachelor of Science in Computer Science from the University of Karachi. My principal area of expertise is web development using JavaScript. Other than that, I've also programmed in C#, X++, PHP, and Swift. I have worked in small to large teams to develop solutions for companies ranging in size from startup to enterprise.
